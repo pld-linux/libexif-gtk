@@ -5,13 +5,12 @@ Version:	0.3.3
 Release:	1
 License:	GPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/libexif/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
 URL:		http://libexif.sourceforge.net/
 BuildRequires:	gtk+2-devel
 BuildRequires:	libexif-devel >= 0.5.9
 Requires:	libexif >= 0.5.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Library of GTK-widgets for libexif.
