@@ -16,6 +16,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libexif-devel >= 0.5.9
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 Requires:	libexif >= 0.5.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
