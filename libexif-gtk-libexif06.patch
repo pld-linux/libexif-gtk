@@ -1,0 +1,49 @@
+--- libexif-gtk-0.3.3/libexif-gtk/gtk-exif-content-list.c.orig	Sun Dec 15 12:35:44 2002
++++ libexif-gtk-0.3.3/libexif-gtk/gtk-exif-content-list.c	Wed Jun  2 12:56:42 2004
+@@ -371,9 +371,10 @@
+ 
+ 	gtk_tree_model_get_value (model, iter, ENTRY_COLUMN, &value);
+ 	if (g_value_peek_pointer (&value) == e) {
++		char buf[1024];
+ 		g_value_unset (&value);
+ 		gtk_list_store_set (GTK_LIST_STORE (model), iter,
+-				VALUE_COLUMN, exif_entry_get_value (e), -1);
++				VALUE_COLUMN, exif_entry_get_value (e, buf, sizeof(buf)), -1);
+ 		return (TRUE);
+ 	}
+ 	g_value_unset (&value);
+@@ -394,13 +395,14 @@
+ gtk_exif_content_list_add_entry (GtkExifContentList *list, ExifEntry *entry)
+ {
+ 	GtkTreeIter iter;
++	char buf[1024];
+ 
+ 	g_return_if_fail (GTK_EXIF_IS_CONTENT_LIST (list));
+ 
+ 	gtk_list_store_append (list->priv->store, &iter);
+ 	gtk_list_store_set (GTK_LIST_STORE (list->priv->store), &iter,
+ 			NAME_COLUMN, exif_tag_get_name (entry->tag),
+-			VALUE_COLUMN, exif_entry_get_value (entry),
++			VALUE_COLUMN, exif_entry_get_value (entry, buf, sizeof(buf)),
+ 			ENTRY_COLUMN, entry, -1);
+ 	g_signal_emit (list, signals[ENTRY_ADDED], 0, entry);
+ }
+--- libexif-gtk-0.3.3/libexif-gtk/gtk-exif-entry-generic.c.orig	Sun Dec 15 12:35:45 2002
++++ libexif-gtk-0.3.3/libexif-gtk/gtk-exif-entry-generic.c	Wed Jun  2 12:57:19 2004
+@@ -89,6 +89,7 @@
+ 	GtkExifEntryGeneric *entry;
+ 	GtkWidget *table, *label;
+ 	gchar *txt;
++	char buf[1024];
+ 
+ 	g_return_val_if_fail (e != NULL, NULL);
+ 
+@@ -136,7 +137,7 @@
+ 	label = gtk_label_new ("Value:");
+ 	gtk_widget_show (label);
+ 	gtk_table_attach (GTK_TABLE (table), label, 0, 1, 3, 4, 0, 0, 0, 0);
+-	label = gtk_label_new (exif_entry_get_value (e));
++	label = gtk_label_new (exif_entry_get_value (e, buf, sizeof(buf)));
+ 	gtk_widget_show (label);
+ 	gtk_table_attach (GTK_TABLE (table), label, 1, 2, 3, 4, 0, 0, 0, 0);
+ 
