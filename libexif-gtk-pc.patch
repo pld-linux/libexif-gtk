@@ -1,0 +1,15 @@
+--- libexif-gtk-0.3.0/configure.in.orig	Wed Feb 13 09:51:13 2002
++++ libexif-gtk-0.3.0/configure.in	Mon Jul  8 20:25:36 2002
+@@ -31,10 +31,10 @@
+ dnl ---------------------------------------------------------------------------
+ dnl libraries needed
+ dnl ---------------------------------------------------------------------------
+-PKG_CHECK_MODULES(LIBEXIF_GTK, gtk libexif >= 0.5.0)
++PKG_CHECK_MODULES(LIBEXIF_GTK, gtk+ libexif >= 0.5.0)
+ AC_SUBST(LIBEXIF_GTK_LIBS)
+ AC_SUBST(LIBEXIF_GTK_CFLAGS)
+-PKG_CHECK_MODULES(GTK, gtk)
++PKG_CHECK_MODULES(GTK, gtk+)
+ AC_SUBST(GTK_LIBS)
+ AC_SUBST(GTK_CFLAGS)
+ 
