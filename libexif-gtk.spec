@@ -2,7 +2,7 @@ Summary:	GTK-widgets for libexif
 Summary(pl):	Widgety GTK do libexif
 Name:		libexif-gtk
 Version:	0.3.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
