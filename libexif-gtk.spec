@@ -1,12 +1,12 @@
 Summary:	GTK-widgets for libexif
 Summary(pl):	Widgety GTK do libexif
 Name:		libexif-gtk
-Version:	0.3.4
+Version:	0.3.5
 Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
-# Source0-md5:	0ce552efab8cc23e0927db0007ece2f1
+# Source0-md5:	0ecdba41f3e0f20a11b8555bd2dd2a07
 URL:		http://libexif.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
