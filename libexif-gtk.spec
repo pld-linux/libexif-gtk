@@ -8,6 +8,7 @@ Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
 # Source0-md5:	8b3e9bfba3432d29374320fc6f352652
 URL:		http://libexif.sourceforge.net/
+BuildRequires:	automake
 BuildRequires:	gtk+2-devel
 BuildRequires:	libexif-devel >= 0.5.9
 Requires:	libexif >= 0.5.9
@@ -49,6 +50,7 @@ Statyczna wersja biblioteki libexif-gtk.
 %setup -q
 
 %build
+cp /usr/share/automake/config.sub .
 %configure
 
 %{__make}
