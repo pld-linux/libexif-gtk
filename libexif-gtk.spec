@@ -11,7 +11,7 @@ URL:		http://libexif.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libexif-devel >= 1:0.6.9
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
