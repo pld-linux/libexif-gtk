@@ -14,9 +14,9 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	libexif-devel >= 0.5.9
+BuildRequires:	libexif-devel >= 0.6.9
 BuildRequires:	libtool
-Requires:	libexif >= 0.5.9
+Requires:	libexif >= 0.6.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +31,7 @@ Summary(pl):	Pliki nag³ówkowe do libexif-gtk
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk+2-devel
-Requires:	libexif-devel >= 0.5.9
+Requires:	libexif-devel >= 0.6.9
 
 %description devel
 Header files for libexif-gtk.
@@ -54,7 +54,7 @@ Statyczna wersja biblioteki libexif-gtk.
 %prep
 %setup -q
 %patch0 -p1
-#%patch1 -p1
+%patch1 -p1
 
 %build
 %{__gettextize}
