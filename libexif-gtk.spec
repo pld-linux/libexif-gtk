@@ -1,5 +1,5 @@
-Summary:	GTK-widgets for libexif
-Summary(pl):	Widgety GTK do libexif
+Summary:	GTK+ widgets for libexif
+Summary(pl):	Widgety GTK+ do libexif
 Name:		libexif-gtk
 Version:	0.3.5
 Release:	1
@@ -19,10 +19,10 @@ Requires:	libexif >= 1:0.6.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Library of GTK-widgets for libexif.
+Library of GTK+ widgets for libexif.
 
 %description -l pl
-Biblioteka widgetów GTK do libexif.
+Biblioteka widgetów GTK+ do libexif.
 
 %package devel
 Summary:	Header files for libexif-gtk
