@@ -1,14 +1,12 @@
 Summary:	GTK-widgets for libexif
 Summary(pl):	Widgety GTK do libexif
 Name:		libexif-gtk
-Version:	0.3.3
-Release:	5
+Version:	0.3.4
+Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
-# Source0-md5:	8b3e9bfba3432d29374320fc6f352652
-Patch0:		%{name}-gtk24.patch
-Patch1:		%{name}-libexif06.patch
+# Source0-md5:	0ce552efab8cc23e0927db0007ece2f1
 URL:		http://libexif.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -54,8 +52,6 @@ Statyczna wersja biblioteki libexif-gtk.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 %{__gettextize}
