@@ -12,7 +12,6 @@ BuildRequires:	libexif-devel >= 0.5.9
 Requires:	libexif >= 0.5.9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 Library of GTK-widgets for libexif.
