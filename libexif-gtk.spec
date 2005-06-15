@@ -1,5 +1,7 @@
-# Revision: 1.21 $, $Date: 2005-06-15 20:42:31 $
+# Revision: 1.21 $, $Date: 2005-06-15 21:14:59 $
+# Conditional build:
 %bcond_without	static_libs	# don't build static library
+#
 Summary:	GTK+ widgets for libexif
 Summary(pl):	Widgety GTK+ do libexif
 Name:		libexif-gtk
