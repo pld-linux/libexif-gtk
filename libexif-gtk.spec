@@ -1,9 +1,9 @@
-# Revision: 1.21 $, $Date: 2005-06-15 21:14:59 $
+# Revision: 1.21 $, $Date: 2007-02-12 00:49:02 $
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	GTK+ widgets for libexif
-Summary(pl):	Widgety GTK+ do libexif
+Summary(pl.UTF-8):   Widgety GTK+ do libexif
 Name:		libexif-gtk
 Version:	0.3.5
 Release:	2
@@ -26,12 +26,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Library of GTK+ widgets for libexif.
 
-%description -l pl
-Biblioteka widgetÛw GTK+ do libexif.
+%description -l pl.UTF-8
+Biblioteka widget√≥w GTK+ do libexif.
 
 %package devel
 Summary:	Header files for libexif-gtk
-Summary(pl):	Pliki nag≥Ûwkowe do libexif-gtk
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe do libexif-gtk
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk+2-devel
@@ -40,19 +40,19 @@ Requires:	libexif-devel >= 1:0.6.12
 %description devel
 Header files for libexif-gtk.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe do libexif-gtk.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe do libexif-gtk.
 
 %package static
 Summary:	Static libexif-gtk library
-Summary(pl):	Statyczna biblioteka libexif-gtk
+Summary(pl.UTF-8):   Statyczna biblioteka libexif-gtk
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of libexif-gtk library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki libexif-gtk.
 
 %prep
