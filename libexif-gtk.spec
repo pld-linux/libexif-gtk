@@ -1,4 +1,4 @@
-# Revision: 1.21 $, $Date: 2007-09-06 14:10:18 $
+# Revision: 1.21 $, $Date: 2007-09-06 14:18:56 $
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
@@ -21,7 +21,7 @@ BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libexif-devel >= 1:0.6.16
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-Requires:	libexif >= 1:0.6.12
+Requires:	libexif >= 1:0.6.16
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +36,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe do libexif-gtk
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk+2-devel
-Requires:	libexif-devel >= 1:0.6.12
+Requires:	libexif-devel >= 1:0.6.16
 
 %description devel
 Header files for libexif-gtk.
@@ -66,7 +66,7 @@ rm -f po/stamp-po
 %build
 %{__gettextize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
