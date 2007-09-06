@@ -1,4 +1,4 @@
-# Revision: 1.21 $, $Date: 2007-09-06 14:18:56 $
+# Revision: 1.21 $, $Date: 2007-09-06 14:30:37 $
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
@@ -7,12 +7,13 @@ Summary:	GTK+ widgets for libexif
 Summary(pl.UTF-8):	Widgety GTK+ do libexif
 Name:		libexif-gtk
 Version:	0.3.5
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
 # Source0-md5:	0ecdba41f3e0f20a11b8555bd2dd2a07
 Source1:	%{name}-pl.po
+Patch0:		%{name}-ac.patch
 URL:		http://libexif.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -58,6 +59,7 @@ Statyczna wersja biblioteki libexif-gtk.
 
 %prep
 %setup -q
+%patch0 -p1
 
 cp %{SOURCE1} po/pl.po
 %{__perl} -pi -e 's/es fr ru/es fr pl ru/' configure.in
@@ -66,7 +68,7 @@ rm -f po/stamp-po
 %build
 %{__gettextize}
 %{__libtoolize}
-%{__aclocal} -I m4
+%{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
