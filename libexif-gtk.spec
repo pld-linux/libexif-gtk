@@ -1,4 +1,4 @@
-# Revision: 1.21 $, $Date: 2008-11-09 17:12:02 $
+# Revision: 1.21 $, $Date: 2008-11-09 18:41:05 $
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
@@ -7,13 +7,14 @@ Summary:	GTK+ widgets for libexif
 Summary(pl.UTF-8):	Widgety GTK+ do libexif
 Name:		libexif-gtk
 Version:	0.3.5
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
 # Source0-md5:	0ecdba41f3e0f20a11b8555bd2dd2a07
 Source1:	%{name}-pl.po
 Patch0:		%{name}-ac.patch
+Patch1:		%{name}-allow-deprecated.patch
 URL:		http://libexif.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -60,6 +61,7 @@ Statyczna wersja biblioteki libexif-gtk.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 cp %{SOURCE1} po/pl.po
 %{__perl} -pi -e 's/es fr ru/es fr pl ru/' configure.in
@@ -81,8 +83,7 @@ rm -f po/stamp-po
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir}
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
 
@@ -95,17 +96,18 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ChangeLog
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libexif-gtk.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libexif-gtk.so.5
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libexif-gtk.so
+%{_libdir}/libexif-gtk.la
 %{_includedir}/libexif-gtk
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/libexif-gtk.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libexif-gtk.a
 %endif
