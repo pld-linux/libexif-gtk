@@ -1,4 +1,3 @@
-# Revision: 1.21 $, $Date: 2010-08-25 16:16:53 $
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
@@ -10,7 +9,7 @@ Version:	0.3.5
 Release:	8
 License:	GPL
 Group:		X11/Libraries
-Source0:	http://dl.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
 # Source0-md5:	0ecdba41f3e0f20a11b8555bd2dd2a07
 Source1:	%{name}-pl.po
 Patch0:		%{name}-ac.patch
