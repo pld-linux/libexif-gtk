@@ -6,7 +6,7 @@ Summary:	GTK+ widgets for libexif
 Summary(pl.UTF-8):	Widgety GTK+ do libexif
 Name:		libexif-gtk
 Version:	0.3.5
-Release:	8
+Release:	9
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://downloads.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
@@ -84,6 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libexif-gtk.la
+
 %find_lang %{name}
 
 %clean
@@ -101,7 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libexif-gtk.so
-%{_libdir}/libexif-gtk.la
 %{_includedir}/libexif-gtk
 %{_pkgconfigdir}/libexif-gtk.pc
 
