@@ -1,0 +1,10 @@
+--- libexif-gtk-0.4.0/configure.ac.orig	2013-03-31 08:17:18.200396009 +0200
++++ libexif-gtk-0.4.0/configure.ac	2013-03-31 08:18:37.943727623 +0200
+@@ -25,7 +25,6 @@
+ GP_CONFIG_MSG([Source code location],[${srcdir}])
+ 
+ AC_PROG_CC
+-AM_PROG_CC_STDC
+ AM_PROG_CC_C_O
+ AC_HEADER_STDC
+ 
