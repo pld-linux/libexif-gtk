@@ -17,7 +17,7 @@ Patch0:		%{name}-am.patch
 URL:		http://libexif.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	gettext-devel >= 0.14.1
+BuildRequires:	gettext-tools >= 0.14.1
 %{?with_gtk2:BuildRequires:	gtk+2-devel >= 2:2.4}
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0}
 BuildRequires:	libexif-devel >= 1:0.6.16
