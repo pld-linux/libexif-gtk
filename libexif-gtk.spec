@@ -7,22 +7,25 @@
 Summary:	GTK+ widgets for libexif
 Summary(pl.UTF-8):	Widgety GTK+ do libexif
 Name:		libexif-gtk
-Version:	0.4.0
-Release:	2
+Version:	0.5.0
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://downloads.sourceforge.net/libexif/%{name}-%{version}.tar.bz2
-# Source0-md5:	777fe42272a3ef49fb65a4b62109731c
+#Source0Download: https://github.com/libexif/libexif-gtk/releases
+Source0:	https://github.com/libexif/libexif-gtk/releases/download/v%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	2bc72a49531cb86096e9038941ec6bda
 Patch0:		%{name}-am.patch
-URL:		http://libexif.sourceforge.net/
-BuildRequires:	autoconf >= 2.59
+URL:		https://libexif.github.io/
+BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-tools >= 0.14.1
 %{?with_gtk2:BuildRequires:	gtk+2-devel >= 2:2.4}
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0}
 BuildRequires:	libexif-devel >= 1:0.6.16
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	%{name}-common = %{version}-%{release}
 Requires:	gtk+2 >= 2:2.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -139,6 +142,7 @@ Statyczna biblioteka libexif-gtk (wersja dla GTK+ 3.x).
 install -d gtk2
 cd gtk2
 ../%configure \
+	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static}
 %{__make}
 cd ..
@@ -148,6 +152,7 @@ cd ..
 install -d gtk3
 cd gtk3
 ../%configure \
+	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
 	--with-gtk3
 %{__make}
