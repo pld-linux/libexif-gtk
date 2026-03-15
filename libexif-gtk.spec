@@ -8,7 +8,7 @@ Summary:	GTK+ widgets for libexif
 Summary(pl.UTF-8):	Widgety GTK+ do libexif
 Name:		libexif-gtk
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Libraries
 #Source0Download: https://github.com/libexif/libexif-gtk/releases
@@ -129,6 +129,7 @@ Statyczna biblioteka libexif-gtk (wersja dla GTK+ 3.x).
 %prep
 %setup -q
 %patch -P0 -p1
+echo 'de es fr pl ru' > po/LINGUAS
 
 %build
 %{__gettextize}
@@ -141,7 +142,8 @@ Statyczna biblioteka libexif-gtk (wersja dla GTK+ 3.x).
 %if %{with gtk2}
 install -d gtk2
 cd gtk2
-../%configure \
+%define configuredir ..
+%configure \
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static}
 %{__make}
@@ -151,7 +153,8 @@ cd ..
 %if %{with gtk3}
 install -d gtk3
 cd gtk3
-../%configure \
+%define configuredir ..
+%configure \
 	--disable-silent-rules \
 	%{!?with_static_libs:--disable-static} \
 	--with-gtk3
@@ -169,7 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libexif-gtk.la
 %endif
 
-%if %{with gtk2}
+%if %{with gtk3}
 %{__make} -C gtk3 install \
 	DESTDIR=$RPM_BUILD_ROOT
 
